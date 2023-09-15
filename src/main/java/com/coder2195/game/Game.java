@@ -16,6 +16,7 @@ enum GameState {
 public class Game {
     public boolean isRunning = true;
     public GameState gameState = GameState.MainScreen;
+    Player player = new Player();
 
     public HashMap<Coordinates, Character> blockData = new HashMap<Coordinates, Character>();
 
@@ -52,7 +53,7 @@ public class Game {
 
             gameState = GameState.Game;
         } else {
-            System.out.println(Ansi.colorize("Press enter to continue...", Attribute.GREEN_TEXT(), Attribute.BOLD()));
+            System.out.println(player.inventory);
         }
 
     }

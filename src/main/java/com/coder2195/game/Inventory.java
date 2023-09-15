@@ -22,6 +22,8 @@ public class Inventory {
 
   public static HashMap<Items, String> itemData = new HashMap<Items, String>();
 
+  InventoryItem[] inventoryItems = new InventoryItem[32];
+
   static {
     itemData.put(Items.GRASS, "🌿");
     itemData.put(Items.DIRT, "🟫");
@@ -44,10 +46,41 @@ public class Inventory {
 
   }
 
+  public boolean addItem(Items item, byte count) {
+    int firstIndex = -1;
+    for (int i = 0; i < inventoryItems.length; i++) {
+      if (inventoryItems[i] == null) {
+        firstIndex = i;
+      }
+      if (inventoryItems[i] != null && inventoryItems[i].item == item) {
+        inventoryItems[i].count += count;
+        return true;
+      }
+    }
+
+    if (firstIndex != -1) {
+      inventoryItems[firstIndex] = new InventoryItem(item, count);
+      return true;
+    }
+
+    return false;
+  }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
 
-    return "Inventory";
+    for (int r = 4; r > 0; r--) {
+      sb.append('┏');
+      for (int c = 0; c < 8; c++) {
+        sb.append("━━┯");
+      }
+      sb.append("━━┓\n");
+      sb.append('┃');
+      
+      sb.append('\n');
+    }
+
+    return sb.toString();
   }
 }
