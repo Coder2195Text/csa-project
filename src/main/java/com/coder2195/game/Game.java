@@ -2,7 +2,6 @@ package com.coder2195.game;
 
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 import com.diogonunes.jcolor.Ansi;
 import com.diogonunes.jcolor.Attribute;
@@ -21,6 +20,8 @@ public class Game {
     public HashMap<Coordinates, Character> blockData = new HashMap<Coordinates, Character>();
 
     Game() {
+        player.inventory.addItem(Items.APPLES, 600);
+        player.inventory.addItem(Items.WOODEN_SWORD, 1);
 
     }
 
