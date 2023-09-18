@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "emoji"
+    ],
+    "properties": {
+      "emoji": {
+        "type": "string"
+      },
+      "maxStackSize": {
+        "type": "number",
+        "minimum": 1
+      },
+      "maxDurability": {
+        "type": "number",
+        "minimum": 1
+      },
+      "attributes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "name",
+            "params"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "params": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

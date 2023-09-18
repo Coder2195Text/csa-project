@@ -20,8 +20,11 @@ public class Game {
     public HashMap<Coordinates, Character> blockData = new HashMap<Coordinates, Character>();
 
     Game() {
-        player.inventory.addItem(Items.APPLES, 600);
-        player.inventory.addItem(Items.WOODEN_SWORD, 1);
+        // add one of every item
+        for (Items item : Items.values()) {
+            player.inventory.addItem(item, 1);
+
+        }
 
     }
 
@@ -33,7 +36,7 @@ public class Game {
 
     private static void clear() {
         try {
-            Thread.sleep(20);
+            Thread.sleep(30);
         } catch (InterruptedException e) {
         }
         System.out.print("\033[H\033[2J");

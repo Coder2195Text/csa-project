@@ -1,0 +1,15 @@
+{
+  "$schema": "./items.schema.json",
+  "GRASS": {
+    "emoji": "🌿"
+  },
+  "DIRT": {
+    "emoji": "🟫"
+  },
+  "STONE": {
+    "emoji": "⬜"
+  },
+  "WOOD": {
+    "emoji": "🟧"
+  }
+}
