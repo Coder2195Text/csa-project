@@ -13,22 +13,43 @@ enum GameState {
 }
 
 public class Game {
-    public boolean isRunning = true;
-    public GameState gameState = GameState.MainScreen;
-    Player player = new Player();
+    private boolean isRunning = true;
+    private GameState gameState = GameState.MainScreen;
+    private Player player = new Player();
 
-    public HashMap<Coordinates, Character> blockData = new HashMap<Coordinates, Character>();
+    private HashMap<Coordinates, Character> blockData = new HashMap<Coordinates, Character>();
 
     Game() {
         // add one of every item
         for (Items item : Items.values()) {
-            player.inventory.addItem(item, 1);
+            player.getInventory().addItem(item, 1);
 
         }
 
     }
 
-    void renderList(String[] list) {
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+
+    public boolean isRunning() {
+        return isRunning;
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public HashMap<Coordinates, Character> getBlockData() {
+        return blockData;
+    }
+
+    private void renderList(String[] list) {
         for (String s : list) {
             System.out.println(s);
         }
@@ -57,7 +78,7 @@ public class Game {
 
             gameState = GameState.Game;
         } else {
-            System.out.println(player.inventory);
+            System.out.println(player.getInventory());
         }
 
     }

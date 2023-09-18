@@ -1,8 +1,20 @@
 package com.coder2195.game;
 
 public class Player {
-    public Inventory inventory = new Inventory();
-    Coordinates position;
+    private Inventory inventory = new Inventory();
+    private Coordinates position;
+    public Inventory getInventory() {
+        return inventory;
+    }
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+    public Coordinates getPosition() {
+        return position;
+    }
+    public void setPosition(Coordinates position) {
+        this.position = position;
+    }
 
     
 }

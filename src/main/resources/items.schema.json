@@ -23,23 +23,11 @@
         "minimum": 1
       },
       "attributes": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "required": [
-            "name",
-            "params"
-          ],
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "params": {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            }
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "number"
           }
         }
       }

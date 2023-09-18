@@ -6,26 +6,42 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Inventory {
 
-  InventoryItem[] inventoryItems = new InventoryItem[42];
+  private InventoryItem[] inventoryItems = new InventoryItem[42];
   int currentSelected = 0;
 
   public Inventory() {
 
   }
 
+  public InventoryItem[] getInventoryItems() {
+    return inventoryItems;
+  }
+
+
+
+  public int getCurrentSelected() {
+    return currentSelected;
+  }
+
+  public void setCurrentSelected(int currentSelected) {
+    this.currentSelected = currentSelected;
+  }
+
   public int addItem(Items item, int count) {
     int maxStackSize = Items.data.get(item).maxStackSize;
     ArrayList<Integer> emptyIndices = new ArrayList<Integer>();
     for (int i = 0; i < inventoryItems.length; i++) {
-      if (inventoryItems[i] == null) {
+      InventoryItem inventoryItem = inventoryItems[i];
+      if (inventoryItem == null) {
         emptyIndices.add(i);
-      } else if (inventoryItems[i].item == item) {
-        if (inventoryItems[i].count + count > maxStackSize) {
-          count -= (maxStackSize - inventoryItems[i].count);
-          inventoryItems[i].count = maxStackSize;
+      } else if (inventoryItem.getItem() == item) {
+        int invCount = inventoryItem.getCount();
+        if (invCount + count > maxStackSize) {
+          count -= (maxStackSize - invCount);
+          invCount = maxStackSize;
           continue;
         }
-        inventoryItems[i].count += count;
+        inventoryItem.setCount(invCount + count);
         return 0;
       }
     }
@@ -43,7 +59,7 @@ public class Inventory {
     return count;
   }
 
-  String topBar() {
+  private String topBar() {
     StringBuilder sb = new StringBuilder();
     sb.append('┏');
     for (int c = 0; c < 8; c++) {
@@ -53,7 +69,7 @@ public class Inventory {
     return sb.toString();
   }
 
-  String bottomBar() {
+  private String bottomBar() {
     StringBuilder sb = new StringBuilder();
     sb.append('┗');
     for (int c = 0; c < 8; c++) {
@@ -63,11 +79,11 @@ public class Inventory {
     return sb.toString();
   }
 
-  String row(InventoryItem[] row) {
-    return row(row, currentSelected);
+  private String row(InventoryItem[] invRow) {
+    return row(invRow, currentSelected);
   }
 
-  String row(InventoryItem[] row, int selected) {
+  private String row(InventoryItem[] row, int selected) {
     if (selected < 0) {
       selected = -2;
     }
@@ -79,9 +95,9 @@ public class Inventory {
     for (int c = 0; c < 9; c++) {
 
       if (row[c] != null) {
-        int count = row[c].count;
-        sb.append(Items.data.get(row[c].item).emoji);
-        sb.append(count == 1 ? "   " : StringUtils.leftPad(String.valueOf(row[c].count), 3));
+        int count = row[c].getCount();
+        sb.append(Items.data.get(row[c].getItem()).emoji);
+        sb.append(count == 1 ? "   " : StringUtils.leftPad(String.valueOf(row[c].getCount()), 3));
       } else {
         sb.append("     ");
       }
@@ -98,7 +114,7 @@ public class Inventory {
     return sb.toString();
   }
 
-  String rowGap() {
+  private String rowGap() {
     return "┠─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┨\n";
   }
 
@@ -109,15 +125,15 @@ public class Inventory {
     sb.append(topBar());
     sb.append(row(new InventoryItem[] { inventoryItems[9], inventoryItems[10], inventoryItems[11],
         inventoryItems[12], inventoryItems[13], inventoryItems[14], inventoryItems[15], inventoryItems[16],
-        inventoryItems[17] }, -1));
+        inventoryItems[17] }));
     sb.append(rowGap());
     sb.append(row(new InventoryItem[] { inventoryItems[18], inventoryItems[19], inventoryItems[20],
         inventoryItems[21], inventoryItems[22], inventoryItems[23], inventoryItems[24], inventoryItems[25],
-        inventoryItems[26] }, -1));
+        inventoryItems[26] }));
     sb.append(rowGap());
     sb.append(row(new InventoryItem[] { inventoryItems[27], inventoryItems[28], inventoryItems[29],
         inventoryItems[30], inventoryItems[31], inventoryItems[32], inventoryItems[33], inventoryItems[34],
-        inventoryItems[35] }, -1));
+        inventoryItems[35] }));
 
     sb.append(bottomBar());
 

@@ -1,8 +1,8 @@
 package com.coder2195.game;
 
 public class Coordinates {
-    public int x;
-    public int y;
+    private int x;
+    private int y;
 
     Coordinates() {
         x = 0;
@@ -13,5 +13,23 @@ public class Coordinates {
         this.x = x;
         this.y = y;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    
 
 }
