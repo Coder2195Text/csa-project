@@ -26,7 +26,7 @@ public class Inventory {
   }
 
   public int addItem(Items item, int count) {
-    int maxStackSize = Items.data.get(item).maxStackSize;
+    int maxStackSize = Items.data.get(item).maxStackSize();
     ArrayList<Integer> emptyIndices = new ArrayList<Integer>();
     for (int i = 0; i < inventoryItems.length; i++) {
       InventoryItem inventoryItem = inventoryItems[i];
@@ -94,7 +94,7 @@ public class Inventory {
 
       if (row[c] != null) {
         int count = row[c].getCount();
-        sb.append(Items.data.get(row[c].getItem()).emoji);
+        sb.append(Items.data.get(row[c].getItem()).emoji());
         sb.append(count == 1 ? "   " : StringUtils.leftPad(String.valueOf(row[c].getCount()), 3));
       } else {
         sb.append("     ");

@@ -11,17 +11,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-class ItemData {
-  public final String emoji;
-  public final int maxStackSize;
-  public final int maxDurability;
+record ItemData(String emoji, int maxStackSize, int maxDurability) {}
 
-  public ItemData(String emoji, int maxStackSize, int maxDurability) {
-    this.emoji = emoji;
-    this.maxStackSize = maxStackSize;
-    this.maxDurability = maxDurability;
-  }
-}
 
 class ToolArmorVariants {
   public static final Attribute WOOD = Attribute.BACK_COLOR(120, 96, 53);
