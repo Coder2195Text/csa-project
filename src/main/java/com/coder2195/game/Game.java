@@ -21,7 +21,9 @@ public class Game {
 
     Game() {
         // add one of every item
+        Object value = Items.data;
         for (Items item : Items.values()) {
+
             player.getInventory().addItem(item, 1);
 
         }
@@ -35,7 +37,6 @@ public class Game {
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
 
     public boolean isRunning() {
         return isRunning;

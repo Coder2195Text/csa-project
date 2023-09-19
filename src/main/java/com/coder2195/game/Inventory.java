@@ -17,8 +17,6 @@ public class Inventory {
     return inventoryItems;
   }
 
-
-
   public int getCurrentSelected() {
     return currentSelected;
   }
@@ -125,15 +123,15 @@ public class Inventory {
     sb.append(topBar());
     sb.append(row(new InventoryItem[] { inventoryItems[9], inventoryItems[10], inventoryItems[11],
         inventoryItems[12], inventoryItems[13], inventoryItems[14], inventoryItems[15], inventoryItems[16],
-        inventoryItems[17] }));
+        inventoryItems[17] }, -1));
     sb.append(rowGap());
     sb.append(row(new InventoryItem[] { inventoryItems[18], inventoryItems[19], inventoryItems[20],
         inventoryItems[21], inventoryItems[22], inventoryItems[23], inventoryItems[24], inventoryItems[25],
-        inventoryItems[26] }));
+        inventoryItems[26] }, -1));
     sb.append(rowGap());
     sb.append(row(new InventoryItem[] { inventoryItems[27], inventoryItems[28], inventoryItems[29],
         inventoryItems[30], inventoryItems[31], inventoryItems[32], inventoryItems[33], inventoryItems[34],
-        inventoryItems[35] }));
+        inventoryItems[35] }, -1));
 
     sb.append(bottomBar());
 

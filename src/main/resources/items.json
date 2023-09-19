@@ -10,6 +10,13 @@
     "emoji": "⬜"
   },
   "WOOD": {
-    "emoji": "🟧"
+    "emoji": "🪵",
+    "variant": "STONE"
+  },
+  "LEAVES": {
+    "emoji": "🍃"
+  },
+  "APPLES": {
+    "emoji": "🍎"
   }
 }

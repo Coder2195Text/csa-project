@@ -30,6 +30,9 @@
             "type": "number"
           }
         }
+      },
+      "variant": {
+        "type": "string"
       }
     }
   }

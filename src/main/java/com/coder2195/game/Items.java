@@ -1,16 +1,26 @@
 package com.coder2195.game;
 
-import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.diogonunes.jcolor.Ansi;
 import com.diogonunes.jcolor.Attribute;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 class ItemData {
-  String emoji;
-  int maxStackSize = Constants.STACK_SIZE;
-  int maxDurability = 0;
+  public final String emoji;
+  public final int maxStackSize;
+  public final int maxDurability;
+
+  public ItemData(String emoji, int maxStackSize, int maxDurability) {
+    this.emoji = emoji;
+    this.maxStackSize = maxStackSize;
+    this.maxDurability = maxDurability;
+  }
 }
 
 class ToolArmorVariants {
@@ -27,163 +37,42 @@ public enum Items {
   STONE,
   WOOD,
   LEAVES,
-  APPLES,
-  WOODEN_SWORD,
-  WOODEN_SHOVEL,
-  WOODEN_HOE,
-  WOODEN_AXE,
-  WOODEN_PICKAXE,
-  STONE_SWORD,
-  STONE_SHOVEL,
-  STONE_HOE,
-  STONE_AXE,
-  STONE_PICKAXE,
-  IRON,
-  DIAMONDS,
-  IRON_HELMET,
-  IRON_CHESTPLATE,
-  IRON_LEGGINGS,
-  IRON_BOOTS,
-  GOLD,
-  ;
+  APPLES;
+
+  class RawItemData {
+    private String emoji;
+    private int maxStackSize;
+    private int maxDurability;
+    private String variant;
+    private HashMap<String, Integer[]> attributes = new HashMap<String, Integer[]>();
+  }
+
+  class RawData extends HashMap<String, RawItemData> {
+  }
 
   public static HashMap<Items, ItemData> data = new HashMap<Items, ItemData>();
 
   static {
-    // data.put(Items.GRASS, new ItemData() {
-    // {
-    // emoji = "🌿";
-    // }
-    // });
-    // data.put(Items.DIRT, new ItemData() {
-    // {
-    // emoji = "🟫";
-    // }
-    // });
-    // data.put(Items.STONE, new ItemData() {
-    // {
-    // emoji = "⬜";
-    // }
-    // });
-    // data.put(Items.WOOD, new ItemData() {
-    // {
-    // emoji = "🟧";
-    // }
-    // });
-    // data.put(Items.LEAVES, new ItemData() {
-    // {
-    // emoji = "🍃";
-    // }
-    // });
-    // data.put(Items.APPLES, new ItemData() {
-    // {
-    // emoji = "🍎";
-    // }
-    // });
-    // data.put(Items.WOODEN_SWORD, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🗡️", ToolArmorVariants.WOOD);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.WOODEN_HOE, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🔨", ToolArmorVariants.WOOD);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.WOODEN_AXE, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🪓", ToolArmorVariants.WOOD);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.WOODEN_PICKAXE, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("⛏️", ToolArmorVariants.WOOD);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.WOODEN_SHOVEL, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🥄", ToolArmorVariants.WOOD);
-    // maxStackSize = 1;
-    // }
-    // });
-
-    // data.put(Items.STONE_SWORD, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🗡️", ToolArmorVariants.STONE);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.STONE_HOE, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🔨", ToolArmorVariants.STONE);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.STONE_AXE, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🪓", ToolArmorVariants.STONE);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.STONE_PICKAXE, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("⛏️", ToolArmorVariants.STONE);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.STONE_SHOVEL, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🥄", ToolArmorVariants.STONE);
-    // maxStackSize = 1;
-    // }
-    // });
-
-    // data.put(Items.IRON, new ItemData() {
-    // {
-    // emoji = "🔘";
-    // }
-    // });
-    // data.put(Items.DIAMONDS, new ItemData() {
-    // {
-    // emoji = "💎";
-    // }
-    // });
-    // data.put(Items.IRON_HELMET, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("🧢", ToolArmorVariants.IRON);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.IRON_CHESTPLATE, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("👕", ToolArmorVariants.IRON);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.IRON_LEGGINGS, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("👖", ToolArmorVariants.IRON);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.IRON_BOOTS, new ItemData() {
-    // {
-    // emoji = Ansi.colorize("👟", ToolArmorVariants.IRON);
-    // maxStackSize = 1;
-    // }
-    // });
-    // data.put(Items.GOLD, new ItemData() {
-    // {
-    // emoji = "🪙";
-    // }
-    // });
     try (InputStreamReader in = new InputStreamReader(
-        Thread.currentThread().getContextClassLoader().getResourceAsStream("/items.json"))) {
-          
+        Thread.currentThread().getContextClassLoader().getResourceAsStream("items.json"))) {
+      JsonObject items = new Gson().fromJson(in, JsonElement.class).getAsJsonObject();
+      items.remove("$schema");
+      for (Map.Entry<String, JsonElement> entry : items.entrySet()) {
+        String name = entry.getKey();
+        RawItemData item = new Gson().fromJson(entry.getValue().toString(), RawItemData.class);
+
+        item.maxStackSize = item.maxStackSize == 0 ? Constants.STACK_SIZE : item.maxStackSize;
+
+        ArrayList<Attribute> attributes = new ArrayList<>();
+
+        if (item.variant != null) {
+          attributes.add((Attribute) ToolArmorVariants.class.getField(item.variant.toUpperCase()).get(null));
+        }
+
+        data.put(Items.valueOf(name), new ItemData(Ansi.colorize(item.emoji, attributes.toArray(new Attribute[] {})),
+            item.maxStackSize, item.maxDurability));
+
+      }
     } catch (Exception e) {
       e.printStackTrace();
     }
