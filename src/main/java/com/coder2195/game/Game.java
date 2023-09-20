@@ -20,8 +20,6 @@ public class Game {
     private HashMap<Coordinates, Character> blockData = new HashMap<Coordinates, Character>();
 
     Game() {
-        // add one of every item
-        Object value = Items.data;
         for (Items item : Items.values()) {
 
             player.getInventory().addItem(item, 1);

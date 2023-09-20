@@ -22,15 +22,6 @@
         "type": "number",
         "minimum": 1
       },
-      "attributes": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        }
-      },
       "variant": {
         "type": "string"
       }

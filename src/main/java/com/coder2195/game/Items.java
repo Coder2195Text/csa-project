@@ -28,14 +28,27 @@ public enum Items {
   STONE,
   WOOD,
   LEAVES,
-  APPLES;
+  APPLES,
+  SAPLINGS,
+  WOODEN_PICKAXE,
+  WOODEN_AXE,
+  WOODEN_SWORD,
+  WOODEN_SHOVEL,
+  WOODEN_HOE,
+  STONE_PICKAXE,
+  STONE_AXE,
+  STONE_SWORD,
+  STONE_SHOVEL,
+  STONE_HOE,
+
+  
+  ;
 
   class RawItemData {
     private String emoji;
     private int maxStackSize;
     private int maxDurability;
     private String variant;
-    private HashMap<String, Integer[]> attributes = new HashMap<String, Integer[]>();
   }
 
   class RawData extends HashMap<String, RawItemData> {

@@ -18,5 +18,48 @@
   },
   "APPLES": {
     "emoji": "🍎"
+  },
+  "SAPLINGS": {
+    "emoji": "🌱"
+  },
+  "WOODEN_PICKAXE": {
+    "emoji": "⛏️",
+    "variant": "WOOD"
+  },
+  "WOODEN_AXE": {
+    "emoji": "🪓",
+    "variant": "WOOD"
+  },
+  "WOODEN_SHOVEL": {
+    "emoji": "🥄",
+    "variant": "WOOD"
+  },
+  "WOODEN_SWORD": {
+    "emoji": "🗡️",
+    "variant": "WOOD"
+  },
+  "WOODEN_HOE": {
+    "emoji": "🔨",
+    "variant": "WOOD"
+  },
+  "STONE_PICKAXE": {
+    "emoji": "⛏️",
+    "variant": "STONE"
+  },
+  "STONE_AXE": {
+    "emoji": "🪓",
+    "variant": "STONE"
+  },
+  "STONE_SHOVEL": {
+    "emoji": "🥄",
+    "variant": "STONE"
+  },
+  "STONE_SWORD": {
+    "emoji": "🗡️",
+    "variant": "STONE"
+  },
+  "STONE_HOE": {
+    "emoji": "🔨",
+    "variant": "STONE"
   }
 }
