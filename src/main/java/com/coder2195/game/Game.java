@@ -20,6 +20,7 @@ public class Game {
     private HashMap<Coordinates, Character> blockData = new HashMap<Coordinates, Character>();
 
     Game() {
+
         for (Items item : Items.values()) {
 
             player.getInventory().addItem(item, 1);
@@ -76,7 +77,9 @@ public class Game {
             sc.close();
 
             gameState = GameState.Game;
-        } else {
+
+        } else if (gameState == GameState.Game) {
+
             System.out.println(player.getInventory());
         }
 

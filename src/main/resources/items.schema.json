@@ -24,6 +24,9 @@
       },
       "variant": {
         "type": "string"
+      },
+      "type": {
+        "type": "string"
       }
     }
   }

@@ -11,10 +11,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-record ItemData(String emoji, int maxStackSize, int maxDurability) {}
+record ItemData(String emoji, int maxStackSize, int maxDurability, ItemType itemType) {
+}
 
-
-class ToolArmorVariants {
+class ToolArmorVariant {
   public static final Attribute WOOD = Attribute.BACK_COLOR(120, 96, 53);
   public static final Attribute STONE = Attribute.BACK_COLOR(128, 128, 128);
   public static final Attribute IRON = Attribute.BACK_COLOR(192, 192, 192);
@@ -41,7 +41,6 @@ public enum Items {
   STONE_SHOVEL,
   STONE_HOE,
 
-  
   ;
 
   class RawItemData {
@@ -49,6 +48,7 @@ public enum Items {
     private int maxStackSize;
     private int maxDurability;
     private String variant;
+    private String type;
   }
 
   class RawData extends HashMap<String, RawItemData> {
@@ -70,11 +70,15 @@ public enum Items {
         ArrayList<Attribute> attributes = new ArrayList<>();
 
         if (item.variant != null) {
-          attributes.add((Attribute) ToolArmorVariants.class.getField(item.variant.toUpperCase()).get(null));
+          attributes.add((Attribute) ToolArmorVariant.class.getField(item.variant.toUpperCase()).get(null));
+        }
+
+        if (item.type == null) {
+          item.type = "BLOCK";
         }
 
         data.put(Items.valueOf(name), new ItemData(Ansi.colorize(item.emoji, attributes.toArray(new Attribute[] {})),
-            item.maxStackSize, item.maxDurability));
+            item.maxStackSize, item.maxDurability, ItemType.valueOf(item.type)));
 
       }
     } catch (Exception e) {

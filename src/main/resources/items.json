@@ -10,56 +10,66 @@
     "emoji": "⬜"
   },
   "WOOD": {
-    "emoji": "🪵",
-    "variant": "STONE"
+    "emoji": "🪵"
   },
   "LEAVES": {
     "emoji": "🍃"
   },
   "APPLES": {
-    "emoji": "🍎"
+    "emoji": "🍎",
+    "type": "FOOD"
   },
   "SAPLINGS": {
     "emoji": "🌱"
   },
   "WOODEN_PICKAXE": {
     "emoji": "⛏️",
-    "variant": "WOOD"
+    "variant": "WOOD",
+    "type": "PICKAXE"
   },
   "WOODEN_AXE": {
     "emoji": "🪓",
-    "variant": "WOOD"
+    "variant": "WOOD",
+    "type": "AXE"
   },
   "WOODEN_SHOVEL": {
     "emoji": "🥄",
-    "variant": "WOOD"
+    "variant": "WOOD",
+    "type": "SHOVEL"
   },
   "WOODEN_SWORD": {
     "emoji": "🗡️",
-    "variant": "WOOD"
+    "variant": "WOOD",
+    "type": "SWORD"
   },
   "WOODEN_HOE": {
     "emoji": "🔨",
-    "variant": "WOOD"
+    "variant": "WOOD",
+    "type": "HOE"
   },
   "STONE_PICKAXE": {
     "emoji": "⛏️",
-    "variant": "STONE"
+    "variant": "STONE",
+    "type": "PICKAXE"
   },
   "STONE_AXE": {
     "emoji": "🪓",
-    "variant": "STONE"
+    "variant": "STONE",
+    "type": "AXE"
   },
   "STONE_SHOVEL": {
     "emoji": "🥄",
-    "variant": "STONE"
+    "variant": "STONE",
+    "type": "SHOVEL"
   },
   "STONE_SWORD": {
     "emoji": "🗡️",
-    "variant": "STONE"
+    "variant": "STONE",
+    "type": "SWORD"
   },
   "STONE_HOE": {
     "emoji": "🔨",
-    "variant": "STONE"
+    "variant": "STONE",
+    "type": "HOE"
   }
 }
