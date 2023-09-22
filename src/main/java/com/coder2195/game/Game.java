@@ -22,9 +22,7 @@ public class Game {
     Game() {
 
         for (Items item : Items.values()) {
-
             player.getInventory().addItem(item, 1);
-
         }
 
     }

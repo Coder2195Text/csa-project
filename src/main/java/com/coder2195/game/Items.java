@@ -11,16 +11,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-record ItemData(String emoji, int maxStackSize, int maxDurability, ItemType itemType) {
-}
-
-class ToolArmorVariant {
-  public static final Attribute WOOD = Attribute.BACK_COLOR(120, 96, 53);
-  public static final Attribute STONE = Attribute.BACK_COLOR(128, 128, 128);
-  public static final Attribute IRON = Attribute.BACK_COLOR(192, 192, 192);
-  public static final Attribute DIAMOND = Attribute.BACK_COLOR(34, 200, 255);
-  public static final Attribute GOLD = Attribute.BACK_COLOR(255, 215, 0);
-}
+// class ItemData {
+// public final String emoji;
+// ...
+// }
 
 public enum Items {
   GRASS,
@@ -43,7 +37,7 @@ public enum Items {
 
   ;
 
-  class RawItemData {
+  private class RawItemData {
     private String emoji;
     private int maxStackSize;
     private int maxDurability;
@@ -51,10 +45,7 @@ public enum Items {
     private String type;
   }
 
-  class RawData extends HashMap<String, RawItemData> {
-  }
-
-  public static HashMap<Items, ItemData> data = new HashMap<Items, ItemData>();
+  public static final HashMap<Items, ItemData> data = new HashMap<Items, ItemData>();
 
   static {
     try (InputStreamReader in = new InputStreamReader(
